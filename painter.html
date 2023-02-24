@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Painter entry - Max Maynor</title>
+
+</head>
+<body>
+<header>
+    <h1>Painter entry - Max Maynor</h1>
+</header>
+<h2>Getting input</h2>
+
+<form>
+    <label for="hiddenPainter">The hidden painter name:</label>
+    <input type="password" id="hiddenPainter" value="Monet">
+    <br>
+    <label for="guessPainter">Guess the painter:</label>
+    <input type="text" id="guessPainter">
+    <br>
+    <button type="button" onclick="checkPainter()">Check the guess</button>
+</form>
+<p id="results"></p>
+<script>
+    let good = 0;
+    let oops = 0;
+    
+    function checkPainter() {
+        const hiddenPainter = document.getElementById("hiddenPainter").value;
+        const guessPainter = document.getElementById("guessPainter").value;
+        if (hiddenPainter === guessPainter) {
+            good++;
+            alert("You got it right!");
+        } else {
+            oops++;
+            alert("Sorry!");
+        }
+        document.getElementById("results").innerHTML = "Good: " + good + ", Oops: " + oops;
+    }
+</script>
+
+</body>
+</html> 
