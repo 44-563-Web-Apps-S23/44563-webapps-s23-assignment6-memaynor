@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Max Shows Currency Conversions</title>
+</head>
+<body>
+<form>
+    <label for="amount">Enter base amount:</label>
+	<input type="number" id="amount" value="50"><br><br>
+	
+	<label for="conversion">Enter the conversion rate:</label>
+	<input type="number" id="conversion" value="35"><br><br>
+	
+	<button onclick="convert()">Show conversions</button><br><br>
+</form>
+	<p id="result"></p>
+
+	
+	<script>
+        
+		resultElement = document.getElementById("result");
+		
+		function convert() {
+		    amount = document.getElementById("amount").value;
+			conversion = document.getElementById("conversion").value;
+			toShow = "";
+			
+			for (i = 1; i <= 5; i++) {
+				value = amount * Math.pow(2, i-1);
+				converted = value * conversion;
+				toShow += value + " is " + converted + "; ";
+			}
+			
+			resultElement.innerHTML = "Conversions are: " + toShow;
+            event.preventDefault();
+		}
+
+        
+	</script>
+
+</body>
+</html> 
