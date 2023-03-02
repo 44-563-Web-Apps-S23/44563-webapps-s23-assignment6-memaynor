@@ -2,9 +2,33 @@
 <html>
 <head>
     <title>Max Shows Currency Conversions</title>
+<script>
+        function chooseOp() {
+            const base = parseFloat(document.getElementById("base").value);
+            const conversion = parseFloat(document.getElementById("conversion").value);
+            result;
+    
+            if (document.getElementById("mean").checked) {
+                result = (base + conversion) / 2;
+                document.getElementById("resultOp").innerHTML = `Average of ${base} and ${conversion} is ${result}`;
+            } else if (document.getElementById("maximum").checked) {
+                result = Math.max(base, conversion);
+                document.getElementById("resultOp").innerHTML = `Max of ${base} and ${conversion} is ${result}`;
+            } else if (document.getElementById("minimum").checked) {
+                result = Math.min(base, conversion);
+                document.getElementById("resultOp").innerHTML = `Min of ${base} and ${conversion} is ${result}`;
+            }
+        }
+</script>
 </head>
 <body>
+    <form>
+        <label><input type="radio" name="operation" id="mean" value="mean" onClick="chooseOp()">Average</label>
+		<label><input type="radio" name="operation" id="maximum" value="maximum" onClick="chooseOp()">Maximum</label>
+		<label><input type="radio" name="operation" id="minimum" value="minimum" onClick="chooseOp()">Minimum</label>
+    </form>
 <form>
+    
     <label for="amount">Enter base amount:</label>
 	<input type="number" id="amount" value="50"><br><br>
 	
@@ -13,8 +37,8 @@
 	
 	<button onclick="convert()">Show conversions</button><br><br>
 </form>
-	<p id="result"></p>
-
+<p id="result"></p>
+<p id="resultOp"></p>
 	
 	<script>
         
@@ -33,10 +57,10 @@
 			
 			resultElement.innerHTML = "Conversions are: " + toShow;
             event.preventDefault();
-		}
-
+        }
         
 	</script>
+    
 
 </body>
 </html> 

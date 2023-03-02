@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Max M chooses candy</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body>
+
+    <form>
+		<div>
+			<label for="dark_chocolate">Dark Chocolate</label>
+			<input type="checkbox" id="dark_chocolate" value="True">
+		</div>
+		<div>
+			<label for="nuts">Nuts</label>
+			<input type="checkbox" id="nuts" value="True">
+		</div>
+		<div>
+			<label for="chewy">Chewy</label>
+			<input type="checkbox" id="chewy" value="False">
+		</div>
+	</form>
+	<button onclick="selectBox()">Select a box</button>
+	<p id="result"></p>
+    <script>
+        let my_candy_box = {};
+    
+        function selectBox() {
+            my_candy_box = {};
+            my_candy_box.dark = document.getElementById("dark_chocolate").checked;
+            my_candy_box.nuts = document.getElementById("nuts").checked;
+            my_candy_box.chewy = document.getElementById("chewy").checked;
+            document.getElementById("result").innerHTML = JSON.stringify(my_candy_box);
+        }
+    </script>
+
+</body>
+</html> 
